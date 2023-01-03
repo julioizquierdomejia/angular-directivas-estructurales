@@ -2,14 +2,67 @@
 <h1 class="text-2xl text-slate-800">Directivas Estructurales</h1>
 
 <div class="bg-yellow-100 p-4 mt-8">
+    <h2 class="text-xl text-slate-600 mb-4">Directivas Estructurales (*ngIf / ngModel)</h2>
     <label for="">Ingresa un nombre</label>
     <br>
     <input type="text" [(ngModel)]="nombre" class="border px-2 py-1 rounded">
     <p *ngIf="nombre" class="mt-4">Estas ingresando el nombre de <span class="text-red-500 font-bold">{{nombre}}</span></p>
 </div>
 
-
 <div class="bg-yellow-100 p-4 mt-8">
     <div *ngIf="status; else bloque ">{{status}}</div>
     <ng-template #bloque class="">{{status}}</ng-template>
+</div>
+
+
+<div class="bg-yellow-100 p-4 mt-8">
+    <h2 class="text-xl text-slate-600 mb-4">Directivas Estructurales (*ngfor)</h2>
+
+    <ul *ngFor="let name of names">
+        <li>{{name}}</li>
+    </ul>
+</div>
+
+
+<div class="bg-yellow-100 p-4 mt-8">
+    <h2 class="text-xl text-slate-600 mb-4">Directivas Estructurales (*ngSwitch)</h2>
+
+    <input type="text" #newDay class="rounded p-1 border">
+    <br>
+    <button (click)="dia = newDay.value" class="rounded bg-blue-500 px-3 py-1 text-white mt-2">Que día es ?</button>
+
+    <div [ngSwitch]="dia">
+        <span *ngSwitchCase="1">Lunes</span>
+        <span *ngSwitchCase="2">Martes</span>
+        <span *ngSwitchCase="3">Miércoles</span>
+        <span *ngSwitchCase="4">Jueves</span>
+        <span *ngSwitchCase="5">Viernes</span>
+        <span *ngSwitchCase="6">Sábado</span>
+        <span *ngSwitchCase="7">Domingo</span>
+        <span *ngSwitchDefault="" class="text-red-500 mt-4">Ingrese un valor de un día válido</span>
+    </div>
+</div>
+
+
+<div class="bg-yellow-100 p-4 mt-8">
+    <h2 class="text-xl text-slate-600 mb-4">Directivas Estructurales (*ngStyle)</h2>
+
+    <div class="">
+        <h3 class="text-orange-800 text-xl mt-4 mb-2">The Beatles</h3>
+        <ul *ngFor="let name of names" class="mr-2">
+            <li [ngClass]="{'selected':name === 'John', 'unSelected':name != 'John'}" class="my-1 p-2">{{name}}</li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="bg-yellow-100 p-4 mt-8">
+    <h2 class="text-xl text-slate-600 mb-4">Directivas Estructurales (*ngStyle)</h2>
+
+    <div class="">
+        <h3 class="text-orange-800 text-xl mt-4">Ciudades</h3>
+        <ul *ngFor="let name of names" class="mr-2">
+            <li [ngStyle]="{'color':'white', 'background-color': name === 'John' ? 'blue' : 'green'}" class="my-2 py-2 px-2">{{name}}</li>
+        </ul>
+    </div>
 </div>

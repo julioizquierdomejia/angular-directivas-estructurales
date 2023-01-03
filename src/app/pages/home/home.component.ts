@@ -10,4 +10,7 @@ export class HomeComponent {
   status = false;
   nombre! :string;
 
+  names = ['John', 'Paul', 'George', 'Ringo', 'Pete Best'];
+  dia! :string;
+
 }
