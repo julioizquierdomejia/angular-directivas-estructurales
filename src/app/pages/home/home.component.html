@@ -1,0 +1,15 @@
+<div class="bg-slate-300 w-3/4 mx-auto mt-6 p-6">
+<h1 class="text-2xl text-slate-800">Directivas Estructurales</h1>
+
+<div class="bg-yellow-100 p-4 mt-8">
+    <label for="">Ingresa un nombre</label>
+    <br>
+    <input type="text" [(ngModel)]="nombre" class="border px-2 py-1 rounded">
+    <p *ngIf="nombre" class="mt-4">Estas ingresando el nombre de <span class="text-red-500 font-bold">{{nombre}}</span></p>
+</div>
+
+
+<div class="bg-yellow-100 p-4 mt-8">
+    <div *ngIf="status; else bloque ">{{status}}</div>
+    <ng-template #bloque class="">{{status}}</ng-template>
+</div>
